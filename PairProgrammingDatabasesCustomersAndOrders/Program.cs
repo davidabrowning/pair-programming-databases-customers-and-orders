@@ -59,11 +59,26 @@ namespace PairProgrammingDatabasesCustomersAndOrders
             foreach (Customer customer in dbCtx.Customers
                 .Include(c => c.Orders)
                 .ThenInclude(o => o.OrderRows)
-                .ThenInclude(or => or.Product))
+                .ThenInclude(or => or.Product)
+                .ToList())
             {
                 Console.WriteLine(customer);
             }
 
+            // ***** THIS DOES NOT WORK: *****
+            //Console.WriteLine("Does not work: Printing all customers after selecting just from dbCtx.Customers:");
+            //foreach (Customer customer in dbCtx.Customers.ToList())
+            //{
+            //    Console.WriteLine($"{customer.CustomerId}. {customer.Name}");
+            //    foreach(Order order in customer.Orders)
+            //    { 
+            //        Console.WriteLine($"     {order.OrderId}. {order.Date}");
+            //        foreach (OrderRow orderRow in order.OrderRows)
+            //        {
+            //            Console.WriteLine($"           {orderRow.Product.Name} {orderRow.ProductCount}x @ {orderRow.ProductUnitPrice}");
+            //        }
+            //    }
+            //}
         }
     }
 }
