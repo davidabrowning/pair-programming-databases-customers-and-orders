@@ -1,0 +1,15 @@
+﻿Tillsammans ska ni skapa en databas med hjälp av “code first”-approach,
+som ska hjälpa en e-handel.
+
+Ni behöver skapa klasser för:
+ - Kunder
+ - Order
+ - OrderRader
+ - Produkter
+
+Tabellerna ska vara kopplade i den ordningen som de står ovan. Tänk på
+att det kan vara 1 till många relationer. 
+
+Varning Order är ju samma ord som finns i t.ex. Linq för att sortera.
+Ett tipps för den som inte vill ha problem är att kalla klassen något
+annat än order.
