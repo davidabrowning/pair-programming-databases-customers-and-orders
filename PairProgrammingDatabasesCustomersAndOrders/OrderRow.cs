@@ -13,5 +13,10 @@ namespace PairProgrammingDatabasesCustomersAndOrders
         public Product Product { get; set; }
         public int ProductCount { get; set; }
         public decimal ProductUnitPrice { get; set; }
+
+        public override string? ToString()
+        {
+            return $"{OrderRowId}. {Product.Name}: {Product.Description} ({ProductCount} at {ProductUnitPrice} each)";
+        }
     }
 }

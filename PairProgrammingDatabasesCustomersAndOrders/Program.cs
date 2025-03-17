@@ -55,7 +55,14 @@ namespace PairProgrammingDatabasesCustomersAndOrders
             //dbCtx.OrderRows.Add(row2);
             //dbCtx.SaveChanges();
 
-
+            Console.WriteLine("Printing all customers:");
+            foreach (Customer customer in dbCtx.Customers
+                .Include(c => c.Orders)
+                .ThenInclude(o => o.OrderRows)
+                .ThenInclude(or => or.Product))
+            {
+                Console.WriteLine(customer);
+            }
 
         }
     }
