@@ -13,7 +13,7 @@ namespace PairProgrammingDatabasesCustomersAndOrders
         public string Email { get; set; }
         virtual public List<Order> Orders { get; set; } = new List<Order>();
 
-        public override string? ToString()
+        public override string ToString()
         {
             string customerString = $"{CustomerId}. {Name} ({Email})";
             foreach (Order order in Orders)
