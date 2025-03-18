@@ -76,6 +76,12 @@ namespace PairProgrammingDatabasesCustomersAndOrders
             //janesOrder.OrderRows.Add(row1);
             //dbCtx.SaveChanges();
 
+            //Order janesOrder = dbCtx.Orders.Where(o => o.OrderId == 3).First<Order>();
+            //OrderRow janesRow = dbCtx.OrderRows.Where(r => r.OrderRowId == 1003).First<OrderRow>();
+            //janesOrder.Date = DateTimeOffset.Now;
+            //janesRow.ProductCount = 15;
+            //dbCtx.SaveChanges();
+
             Console.WriteLine("Printing all customers after selecting just from dbCtx.Customers (with includes):");
             foreach (Customer customer in dbCtx.Customers
                 .Include(c => c.Orders)
