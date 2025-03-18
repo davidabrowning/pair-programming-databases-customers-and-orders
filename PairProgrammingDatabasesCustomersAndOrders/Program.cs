@@ -55,6 +55,12 @@ namespace PairProgrammingDatabasesCustomersAndOrders
             //dbCtx.OrderRows.Add(row2);
             //dbCtx.SaveChanges();
 
+            Console.WriteLine("Printing orders with dynamically calculated TotalPrice:");
+            foreach (Order order in dbCtx.Orders.Include(o => o.OrderRows).ToList())
+            {
+                Console.WriteLine($"Order {order.OrderId}. TotalPrice: {order.TotalPrice}");
+            }
+
             Console.WriteLine("Printing all customers:");
             foreach (Customer customer in dbCtx.Customers
                 .Include(c => c.Orders)
