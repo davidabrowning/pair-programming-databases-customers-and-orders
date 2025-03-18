@@ -18,7 +18,7 @@ namespace PairProgrammingDatabasesCustomersAndOrders
             string orderString = $"Order {OrderId}. {Date}";
             foreach (OrderRow orderRow in OrderRows)
             {
-                orderString += $"\n     {orderRow}";
+                orderString += $"\n\t\t{orderRow}";
             }
             return orderString;
         }

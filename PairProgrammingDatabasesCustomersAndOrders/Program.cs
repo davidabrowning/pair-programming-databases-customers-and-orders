@@ -55,15 +55,15 @@ namespace PairProgrammingDatabasesCustomersAndOrders
             //dbCtx.OrderRows.Add(row2);
             //dbCtx.SaveChanges();
 
-            //Console.WriteLine("Printing all customers:");
-            //foreach (Customer customer in dbCtx.Customers
-            //    .Include(c => c.Orders)
-            //    .ThenInclude(o => o.OrderRows)
-            //    .ThenInclude(or => or.Product)
-            //    .ToList())
-            //{
-            //    Console.WriteLine(customer);
-            //}
+            Console.WriteLine("Printing all customers:");
+            foreach (Customer customer in dbCtx.Customers
+                .Include(c => c.Orders)
+                .ThenInclude(o => o.OrderRows)
+                .ThenInclude(r => r.Product)
+                .ToList())
+            {
+                Console.WriteLine(customer);
+            }
 
             //Customer? jane = dbCtx.Customers.Where(c => c.Name.Contains("Jane")).FirstOrDefault<Customer>();
             //Order janesOrder = new Order();
@@ -82,22 +82,22 @@ namespace PairProgrammingDatabasesCustomersAndOrders
             //janesRow.ProductCount = 15;
             //dbCtx.SaveChanges();
 
-            Console.WriteLine("Printing all customers after selecting just from dbCtx.Customers (with includes):");
-            foreach (Customer customer in dbCtx.Customers
-                .Include(c => c.Orders)
-                .ThenInclude(o => o.OrderRows)
-                .ThenInclude(r => r.Product))
-            {
-                Console.WriteLine($"{customer.CustomerId}. {customer.Name}");
-                foreach (Order order in customer.Orders)
-                {
-                    Console.WriteLine($"\t{order.OrderId}. {order.Date}");
-                    foreach (OrderRow orderRow in order.OrderRows)
-                    {
-                        Console.WriteLine($"\t\t{orderRow.Product.Name} {orderRow.ProductCount}x @ {orderRow.ProductUnitPrice}");
-                    }
-                }
-            }
+            //Console.WriteLine("Printing all customers after selecting just from dbCtx.Customers (with includes):");
+            //foreach (Customer customer in dbCtx.Customers
+            //    .Include(c => c.Orders)
+            //    .ThenInclude(o => o.OrderRows)
+            //    .ThenInclude(r => r.Product))
+            //{
+            //    Console.WriteLine($"{customer.CustomerId}. {customer.Name}");
+            //    foreach (Order order in customer.Orders)
+            //    {
+            //        Console.WriteLine($"\t{order.OrderId}. {order.Date}");
+            //        foreach (OrderRow orderRow in order.OrderRows)
+            //        {
+            //            Console.WriteLine($"\t\t{orderRow.Product.Name} {orderRow.ProductCount}x @ {orderRow.ProductUnitPrice}");
+            //        }
+            //    }
+            //}
         }
     }
 }

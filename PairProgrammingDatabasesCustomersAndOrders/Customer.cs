@@ -18,7 +18,7 @@ namespace PairProgrammingDatabasesCustomersAndOrders
             string customerString = $"{CustomerId}. {Name} ({Email})";
             foreach (Order order in Orders)
             {
-                customerString += $"\n     {order}";
+                customerString += $"\n\t{order}";
             }
             return customerString;
         }
