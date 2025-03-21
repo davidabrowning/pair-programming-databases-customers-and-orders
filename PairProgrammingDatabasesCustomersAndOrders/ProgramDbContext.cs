@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Debug;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,16 @@ namespace PairProgrammingDatabasesCustomersAndOrders
                 .AddJsonFile("appsettings.json")
                 .Build()
                 .GetSection("ConnectionStrings")["ApplicationDb"]);
+
+            // Logging variant 1
+            optionsBuilder.UseLoggerFactory(
+                new LoggerFactory(new[]
+                {
+                    new DebugLoggerProvider()
+                }));
+            
+            // Logging variant 2
+            // optionsBuilder.LogTo(Console.WriteLine);
         }
     }
 }
